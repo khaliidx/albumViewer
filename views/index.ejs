@@ -1,0 +1,19 @@
+<% include _header %>
+
+
+<h1 class="text-center">Welcome!</h1><br><br>
+
+
+
+<div class="col-md-6">
+	<% if (currentUser) { %>
+	   	<a class="mybtn btn-primary" href="/fb_search/<%= currentUser.facebook.id %>" >My albums</a>
+	<% } %>
+</div>
+
+
+
+
+
+
+<% include _footer %>

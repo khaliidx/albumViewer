@@ -1,0 +1,47 @@
+<% include _header %>
+
+
+<h1>My Albums</h1>
+<br><br>
+
+
+<div class="container" style="width:900px">
+	
+	<div class="row">
+	
+
+
+		<% 
+		function compare(a,b) {
+		  if (a.name.toLowerCase() < b.name.toLowerCase())
+		    return -1;
+		  if (a.name.toLowerCase() > b.name.toLowerCase())
+		    return 1;
+		  return 0;
+		}
+		albums.data.sort(compare);
+		%>
+
+
+
+
+		<% albums.data.forEach(function(album) { %>
+			
+			<div class="col-md-6">
+				
+				<div class="thumbnail">
+					<a href="/album/<%= album.id %>">
+						<img class="img-responsive" src="<%= album.picture.data.url %>" alt="not working?" style="height:200px" >
+						<div class="caption"><h3><%= album.name %></h3></div>
+					</a>
+				</div>
+
+			</div>
+
+		<% }) %>
+		
+	</div>
+	
+</div>
+
+<% include _footer %>

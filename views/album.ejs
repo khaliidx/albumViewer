@@ -1,0 +1,34 @@
+<% include _header %>
+
+
+<a class="mybtn btn-primary" href="/fb_search/<%= currentUser.facebook.id %>" >Back to albums</a>
+
+
+
+<h1 class="text-center"> <%= album.data[0].album.name %> </h1>
+<br><br>
+
+<div class="container tz-gallery">
+
+	<div class="row">
+
+	<% album.data.forEach(function(photo) { %>
+		
+		<div class="col-sm-6 col-md-4">
+			<a href="<%= photo.source %>" class="lightbox">
+			<img class="img-responsive" src="<%= photo.source %>" alt="not working?">
+			</a>
+		</div>
+		
+	<% }) %>
+
+	</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
+
+<% include _footer %>

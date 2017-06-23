@@ -1,0 +1,15 @@
+<% include _header %>
+
+
+<h1>Edit your profile</h1>
+
+<form action="/edit" method="post">
+	Display name : <input name="displayname" type="text" class="form-control"placeholder="Display name" 
+		value="<%= currentUser.facebook.username %>">
+	Email : <input name="email" type="text" class="form-control"placeholder="Email" 
+		value="<%= currentUser.facebook.email || "" %>">
+	<input type="submit" value="Update" class="mybtn btn-primary btn-block">
+</form>
+
+
+<% include _footer %>

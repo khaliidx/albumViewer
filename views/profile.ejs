@@ -1,0 +1,25 @@
+<% include _header %>
+
+
+<% if (currentUser) { %>
+
+	<% if ((currentUser.id === user.id)) { %>
+		<a href="/edit" class="mybtn pull-right">Edit your profile</a>
+	<% } %>
+
+	<% if (currentUser.local.isAdmin) { %>
+		<a href="/users/delete/<%= user.local.username || user.facebook.username %>" class="mybtn">Delete Account</a>
+	<% } %>
+
+<% } %>
+
+
+<h1><%= user.name() %></h1>
+<h2>Email : <%= user.local.email || user.facebook.email %></h2>
+<% if (user.local.bio) { %>
+<p><%= user.local.bio %></p>
+<% } %>
+
+<h3>Joined on <%= user.local.createdAt || user.facebook.createdAt %></h3>
+
+<% include _footer %>
